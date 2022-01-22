@@ -1,0 +1,18 @@
+{
+    "en": {
+        "errors": {
+            "autoDelete": "I don't have the permission to delete messages",
+            "autoKick": "I don't have the permission to kick members",
+            "modChannel": "The mod channel is not set or I can't find it"
+        },
+        "modMessage": "has been reported for phising. Original message:"
+    },
+    "es": {
+        "errors": {
+            "autoDelete": "No tengo permiso para borrar mensajes",
+            "autoKick": "No tengo permiso para expulsar miembros",
+            "modChannel": "El canal de moderación no está configurado o no puedo encontrarlo"
+        },
+        "modMessage": "ha sido reportado por estafa. Mensaje original:"
+    }
+}
