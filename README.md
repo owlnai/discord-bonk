@@ -5,6 +5,13 @@ Has the option to either report them to a mod channel, kick the author or even k
 
 It can be self-hosted if you want.
 
+## Installation & run
+- Clone the repository
+- Install the packages with your favorite Node.js package manager
+- Edit `config.sample.json` with the appropiate values and rename it to `config.json`
+- Run `npm start` (or the equivalent)
+- ???
+- Bonk
 ## Acknowledgements
 - Discord.js for their easy-to-use library. The entire bot was built in less than half a day.
 - `stop-discord-phishing` for their comprehensive list of phising links.
