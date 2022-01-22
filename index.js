@@ -113,8 +113,6 @@ client.on('interactionCreate', async interaction => {
             return interaction.reply(`✅`);
         }
         return interaction.reply(`❌`);
-    } else if (commandName === 'info') {
-        // [theta]
     }
 });
 
