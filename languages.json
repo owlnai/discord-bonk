@@ -3,7 +3,10 @@
         "errors": {
             "autoDelete": "I don't have the permission to delete messages",
             "autoKick": "I don't have the permission to kick members",
-            "modChannel": "The mod channel is not set or I can't find it"
+            "modChannel": "The mod channel is not set or I can't find it",
+            "autoRemoveOtherRoles": "I don't have the permission to remove other roles",
+            "autoRole": "I don't have the permission to add roles",
+            "roleID": "The role ID is not set or I can't find it"
         },
         "modMessage": "has been reported for phising. Original message:"
     },
@@ -11,7 +14,10 @@
         "errors": {
             "autoDelete": "No tengo permiso para borrar mensajes",
             "autoKick": "No tengo permiso para expulsar miembros",
-            "modChannel": "El canal de moderación no está configurado o no puedo encontrarlo"
+            "modChannel": "El canal de moderación no está configurado o no puedo encontrarlo",
+            "autoRemoveOtherRoles": "No tengo permiso para eliminar roles de otros",
+            "autoRole": "No tengo permiso para añadir roles",
+            "roleID": "El ID del rol no está configurado o no puedo encontrarlo"
         },
         "modMessage": "ha sido reportado por estafa. Mensaje original:"
     }

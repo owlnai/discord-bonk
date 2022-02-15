@@ -31,6 +31,17 @@ const Guild = sequelize.define('guilds', {
     },
     modChannel: {
         type: Sequelize.TEXT,
+    },
+    autoRole: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    },
+    autoRemoveOtherRoles: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    },
+    roleID: {
+        type: Sequelize.STRING
     }
 });
 
@@ -56,36 +67,61 @@ client.once("ready", () => {
 
 client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
-    const actionsToTake = await Guild.findOne({ where: { guild_id: message.guild.id } });
-    if (!actionsToTake) {
-        await initGuild(message.guild);
-        console.log("Couldn't find a guild for some reason, recreating it");
-        return;
-    }
-    let isPhising = await stopPhishing.checkMessage(message.content)
-    if (isPhising) {
-        if (actionsToTake.autoDelete) {
-            if (message.guild.me.permissions.has("MANAGE_MESSAGES")) {
-                message.delete();
-            } else {
-                message.channel.send(languages[actionsToTake.language].errors.autoDelete);
+    try {
+        const actionsToTake = await Guild.findOne({ where: { guild_id: message.guild.id } });
+        if (!actionsToTake) {
+            await initGuild(message.guild);
+            console.log("Couldn't find a guild for some reason, recreating it");
+            return;
+        }
+        let isPhising = await stopPhishing.checkMessage(message.content)
+        if (isPhising) {
+            if (actionsToTake.autoDelete) {
+                if (message.guild.me.permissions.has("MANAGE_MESSAGES")) {
+                    message.delete();
+                } else {
+                    message.channel.send(languages[actionsToTake.language].errors.autoDelete);
+                }
+            }
+            if (actionsToTake.autoKick) {
+                if (message.guild.me.permissions.has("KICK_MEMBERS")) {
+                    message.member.kick();
+                } else {
+                    message.channel.send(languages[actionsToTake.language].errors.autoKick || "Error");
+                }
+            }
+            if (actionsToTake.modChannel) {
+                const channel = message.guild.channels.cache.get(actionsToTake.modChannel);
+                if (!channel) {
+                    message.channel.send(languages[actionsToTake.language].errors.autoKick || "Error");
+                } else {
+                    channel.send(`${message.author.tag} (${message.author.id}) ${languages[actionsToTake.language].modMessage}\n\`\`\`${message.content}\`\`\``);
+                }
+            }
+            if (actionsToTake.autoRole) {
+                if (!actionsToTake.roleID) {
+                    message.channel.send(languages[actionsToTake.language].errors.roleID || "Error");
+                }
+                const role = message.guild.roles.cache.get(actionsToTake.roleID);
+                if (!message.member.manageable || !role.editable) {
+                    message.channel.send(languages[actionsToTake.language].errors.autoRole || "Error");
+                } else {
+                    message.member.roles.add(role);
+                }
+            }
+            if (actionsToTake.autoRemoveOtherRoles) {
+                const roleid = actionsToTake.roleID;
+                if (message.member.manageable) {
+                    const roles = message.member.roles.cache;
+                    if (roleid && roles.get(roleid)?.editable) roles.delete(roleid); // filter out the autorole role, we want to keep it
+                    message.member.roles.remove(roles);
+                } else {
+                    message.channel.send(languages[actionsToTake.language].errors.autoRemoveOtherRoles || "Error");
+                }
             }
         }
-        if (actionsToTake.autoKick) {
-            if (message.guild.me.permissions.has("KICK_MEMBERS")) {
-                message.member.kick();
-            } else {
-                message.channel.send(languages[actionsToTake.language].errors.autoKick);
-            }
-        }
-        if (actionsToTake.modChannel) {
-            const channel = client.channels.cache.get(actionsToTake.modChannel);
-            if (!channel) {
-                message.channel.send(languages[actionsToTake.language].errors.autoKick);
-                return;
-            }
-            channel.send(`${message.author.tag} (${message.author.id}) ${languages[actionsToTake.language].modMessage}\n\`\`\`${message.content}\`\`\``);
-        }
+    } catch (error) {
+        console.log('[ERROR] %s', error);
     }
 });
 
@@ -103,6 +139,9 @@ client.on('interactionCreate', async interaction => {
         opt.autoDelete = interaction.options.getBoolean('autodelete');
         opt.autoDelete = interaction.options.getString("language");
         opt.modChannel = interaction.options.getChannel('modchannel')?.id;
+        opt.roleID = interaction.options.getRole('roleid')?.id;
+        opt.autoRole = interaction.options.getBoolean('autorole');
+        opt.autoRemoveOtherRoles = interaction.options.getBoolean('removeroles');
         opt.language = interaction.options.getString("language");
 
         Object.keys(opt).forEach((k) => opt[k] == null && delete opt[k]);

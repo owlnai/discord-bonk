@@ -8,7 +8,7 @@ const commands = [
     new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
     new SlashCommandBuilder().setName('server')
         .addBooleanOption(option => option.setName('autokick')
-            .setDescription('Should it autokick the user when doing it?')
+            .setDescription('Should it autokick the user upon infraction?')
         )
         .addBooleanOption(option => option.setName('autodelete')
             .setDescription('Should it delete?')
@@ -26,6 +26,17 @@ const commands = [
                     ['Español', 'es'],
                 ]),
         )
+        .addRoleOption((option) =>
+            option
+                .setName("roleid")
+                .setDescription("Role id?")
+        )
+        .addBooleanOption(option => option.setName('autorole')
+            .setDescription('Should it give the user a custom role upon infraction?')
+    )
+        .addBooleanOption(option => option.setName('removeroles')
+            .setDescription('Should it remove the other roles (except the custom role, if set) upon infraction?')
+        )
         .setDescription('Sets bot info for the guild (server)'),
 ]
     .map(command => command.toJSON());
@@ -36,7 +47,7 @@ const rest = new REST({ version: '9' }).setToken(token);
     try {
         console.log('Started refreshing application (/) commands.');
 
-        await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+        await rest.put(Routes.applicationCommands(clientId), {
             body: commands,
         });
 
