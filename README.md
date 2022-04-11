@@ -7,7 +7,7 @@ It can be self-hosted if you want.
 
 ## Installation & run
 - Clone the repository
-- Install the packages with your favorite Node.js package manager
+- Install the packages with your favorite Node.js package manager. There's a lockfile included if you use PNPM.
 - Edit `config.sample.json` with the appropiate values and rename it to `config.json`
 - Run `npm start` (or the equivalent)
 - ???
