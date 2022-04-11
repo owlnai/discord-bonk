@@ -128,11 +128,16 @@ client.on("messageCreate", async (message) => {
 client.on("guildCreate", initGuild);
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
-    const { commandName } = interaction;
+    const { commandName, user: { id: userID }, member: { guild: { members: { cache: userCache } } } } = interaction;
 
     if (commandName === 'ping') {
         await interaction.reply('Pong!');
     } else if (commandName === 'server') {
+
+        if (!userCache.get(userID).permissions.has('MANAGE_GUILD')) {
+            await interaction.reply("Error . You can't manage this server ❌");
+            return;
+        }
         let opt = {};
 
         opt.autoKick = interaction.options.getBoolean('autokick');
