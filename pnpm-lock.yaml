@@ -1,20 +1,20 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@discordjs/builders': ^0.9.0
-  '@discordjs/rest': ^0.1.0-canary.0
-  discord-api-types: ^0.25.2
+  '@discordjs/builders': ^0.12.0
+  '@discordjs/rest': ^0.3.0
+  discord-api-types: ^0.31.0
   discord.js: ^13.6.0
-  sequelize: ^6.16.1
+  sequelize: ^6.18.0
   sqlite3: ^5.0.2
   stop-discord-phishing: latest
 
 dependencies:
-  '@discordjs/builders': 0.9.0
-  '@discordjs/rest': 0.1.0-canary.0
-  discord-api-types: 0.25.2
+  '@discordjs/builders': 0.12.0
+  '@discordjs/rest': 0.3.0
+  discord-api-types: 0.31.0
   discord.js: 13.6.0
-  sequelize: 6.16.1_sqlite3@5.0.2
+  sequelize: 6.18.0_sqlite3@5.0.2
   sqlite3: 5.0.2
   stop-discord-phishing: 0.2.0
 
@@ -31,19 +31,15 @@ packages:
       zod: 3.11.6
     dev: false
 
-  /@discordjs/builders/0.9.0:
-    resolution: {integrity: sha512-XM/5yrTxMF0SDKza32YzGDQO1t+qEJTaF8Zvxu/UOjzoqzMPPGQBjC1VgZxz8/CBLygW5qI+UVygMa88z13G3g==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
+  /@discordjs/builders/0.12.0:
+    resolution: {integrity: sha512-Vx2MjUZd6QVo1uS2uWt708Fd6cHWGFblAvbpL5EBO+kLl0BADmPwwvts+YJ/VfSywed6Vsk6K2cEooR/Ytjhjw==}
+    engines: {node: '>=16.9.0'}
     dependencies:
       '@sindresorhus/is': 4.4.0
-      discord-api-types: 0.24.0
+      discord-api-types: 0.26.1
       ts-mixer: 6.0.0
       tslib: 2.3.1
       zod: 3.11.6
-    dev: false
-
-  /@discordjs/collection/0.1.6:
-    resolution: {integrity: sha512-utRNxnd9kSS2qhyivo9lMlt5qgAUasH2gb7BEOn6p0efFh24gjGomHzWKMAPn2hEReOPQZCJaRKoURwRotKucQ==}
     dev: false
 
   /@discordjs/collection/0.4.0:
@@ -51,15 +47,14 @@ packages:
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     dev: false
 
-  /@discordjs/rest/0.1.0-canary.0:
-    resolution: {integrity: sha512-d+s//ISYVV+e0w/926wMEeO7vju+Pn11x1JM4tcmVMCHSDgpi6pnFCNAXF1TEdnDcy7xf9tq5cf2pQkb/7ySTQ==}
-    engines: {node: '>=16.0.0'}
+  /@discordjs/rest/0.3.0:
+    resolution: {integrity: sha512-F9aeP3odlAlllM1ciBZLdd+adiAyBj4VaZBejj4UMj4afE2wfCkNTGvYYiRxrXUE9fN7e/BuDP2ePl0tVA2m7Q==}
+    engines: {node: '>=16.9.0'}
     dependencies:
-      '@discordjs/collection': 0.1.6
+      '@discordjs/collection': 0.4.0
       '@sapphire/async-queue': 1.2.0
-      '@sapphire/snowflake': 1.3.6
-      abort-controller: 3.0.0
-      discord-api-types: 0.18.1
+      '@sapphire/snowflake': 3.2.1
+      discord-api-types: 0.26.1
       form-data: 4.0.0
       node-fetch: 2.6.7
       tslib: 2.3.1
@@ -72,10 +67,9 @@ packages:
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
     dev: false
 
-  /@sapphire/snowflake/1.3.6:
-    resolution: {integrity: sha512-QnzuLp+p9D7agynVub/zqlDVriDza9y3STArBhNiNBUgIX8+GL5FpQxstRfw1jDr5jkZUjcuKYAHxjIuXKdJAg==}
-    engines: {node: '>=12', npm: '>=6'}
-    deprecated: This version has been automatically deprecated by @favware/npm-deprecate. Please use a newer version.
+  /@sapphire/snowflake/3.2.1:
+    resolution: {integrity: sha512-vmZq1I6J6iNRQVXP+N9HzOMOY4ORB3MunoFeWCw/aBnZTf1cDgDvP0RZFQS53B1TN95AIgFY9T+ItQ/fWAUYWQ==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
     dev: false
 
   /@sindresorhus/is/4.4.0:
@@ -104,6 +98,10 @@ packages:
     resolution: {integrity: sha512-eKj4f/BsN/qcculZiRSujogjvp5O/k4lOW5m35NopjZM/QwLOR075a8pJW5hD+Rtdm2DaCVPENS6KtSQnUD6BA==}
     dev: false
 
+  /@types/validator/13.7.2:
+    resolution: {integrity: sha512-KFcchQ3h0OPQgFirBRPZr5F/sVjxZsOrQHedj3zi8AH3Zv/hOLx2OLR4hxR5HcfoU+33n69ZuOfzthKVdMoTiw==}
+    dev: false
+
   /@types/ws/8.2.2:
     resolution: {integrity: sha512-NOn5eIcgWLOo6qW8AcuLZ7G8PycXu0xTxxkS6Q18VWFxgPUSOwV0pBj2a/4viNZVu25i7RIB7GttdkAIUUXOOg==}
     dependencies:
@@ -112,13 +110,6 @@ packages:
 
   /abbrev/1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
-    dev: false
-
-  /abort-controller/3.0.0:
-    resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
-    engines: {node: '>=6.5'}
-    dependencies:
-      event-target-shim: 5.0.1
     dev: false
 
   /ajv/6.12.6:
@@ -292,28 +283,14 @@ packages:
     hasBin: true
     dev: false
 
-  /discord-api-types/0.18.1:
-    resolution: {integrity: sha512-hNC38R9ZF4uaujaZQtQfm5CdQO58uhdkoHQAVvMfIL0LgOSZeW575W8H6upngQOuoxWd8tiRII3LLJm9zuQKYg==}
-    engines: {node: '>=12'}
-    deprecated: No longer supported. Install the latest release (0.20.2)
-    dev: false
-
-  /discord-api-types/0.24.0:
-    resolution: {integrity: sha512-X0uA2a92cRjowUEXpLZIHWl4jiX1NsUpDhcEOpa1/hpO1vkaokgZ8kkPtPih9hHth5UVQ3mHBu/PpB4qjyfJ4A==}
-    engines: {node: '>=12'}
-    deprecated: No longer supported. Install the latest release!
-    dev: false
-
-  /discord-api-types/0.25.2:
-    resolution: {integrity: sha512-O243LXxb5gLLxubu5zgoppYQuolapGVWPw3ll0acN0+O8TnPUE2kFp9Bt3sTRYodw8xFIknOVxjSeyWYBpVcEQ==}
-    engines: {node: '>=12'}
-    deprecated: No longer supported. Install the latest release!
-    dev: false
-
   /discord-api-types/0.26.1:
     resolution: {integrity: sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ==}
     engines: {node: '>=12'}
     deprecated: No longer supported. Install the latest release!
+    dev: false
+
+  /discord-api-types/0.31.0:
+    resolution: {integrity: sha512-IL4KKEo3QOQRcrtkpAYiDOQHIVuDBgtzFgDKsMqllbPKi3o/54mJOvYEG38oFa1G2qR4b+nTB5mMgc85W4/eQw==}
     dev: false
 
   /discord.js/13.6.0:
@@ -346,11 +323,6 @@ packages:
       safer-buffer: 2.1.2
     dev: false
     optional: true
-
-  /event-target-shim/5.0.1:
-    resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
-    engines: {node: '>=6'}
-    dev: false
 
   /extend/3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
@@ -945,8 +917,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /sequelize/6.16.1_sqlite3@5.0.2:
-    resolution: {integrity: sha512-YFGqrwkmEhSbpZBxay5+PRKMiZNNUJzgIixCyFkLm9+/5Rqq5jBADEjTAC8RYHzwsOGNboYh18imXrYNCjBZCQ==}
+  /sequelize/6.18.0_sqlite3@5.0.2:
+    resolution: {integrity: sha512-x8TW8ovqG8ljZq0Uow1mtMq44hSKPefWEC590R9IWgF2dajEHvKJJpXo1FiRPfj6spOHWOnmOs1Xbb1JPG3Ifg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       ibm_db: '*'
@@ -976,6 +948,7 @@ packages:
         optional: true
     dependencies:
       '@types/debug': 4.1.7
+      '@types/validator': 13.7.2
       debug: 4.3.3
       dottie: 2.0.2
       inflection: 1.13.2
