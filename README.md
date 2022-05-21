@@ -15,5 +15,5 @@ It can be self-hosted if you want.
 ## Acknowledgements
 - Discord.js for their easy-to-use library. The entire bot was built in less than half a day.
 - `stop-discord-phishing` for their comprehensive list of phising links.
-- `makibot` for the original idea behind the bot.
+- `makibonk` for the original idea behind the bot.
 
